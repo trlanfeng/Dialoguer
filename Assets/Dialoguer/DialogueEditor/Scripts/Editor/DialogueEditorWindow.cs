@@ -194,9 +194,11 @@ public class DialogueEditorWindow : EditorWindow {
 					__removeMultiple = true;
 					GUI.FocusControl("null");
 				}else{
-					DialogueEditorDataManager.data.removeDialogue(1);
-				}
-			}
+					//DialogueEditorDataManager.data.removeDialogue(1);
+                    //修改删除最后一个为删除选中项
+					DialogueEditorDataManager.data.removeDialogueByID(DialogueEditorDataManager.data.currentDialogueId);
+                }
+            }
 		}else{
 			GUI.color = new Color(1,1,1,0.25f);
 			GUI.Button(deleteButtonRect, deleteButtonText, DialogueEditorGUI.gui.GetStyle("toolbar_right"));
